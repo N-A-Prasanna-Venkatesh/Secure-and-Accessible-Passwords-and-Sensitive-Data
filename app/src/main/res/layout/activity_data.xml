@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Data">
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/grid_view"
+        android:layout_above="@+id/Gen_Pass"
+        android:layout_marginBottom="15dp"
+        android:numColumns="2"/>
+    <!--<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ids"
+        android:text="This is where u can see your encrypted data"
+        android:layout_centerInParent="true"/>-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Gen_Pass"
+        android:text="Generate Pass"
+        android:layout_toLeftOf="@+id/tv_align1"
+        android:layout_alignParentBottom="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_align1"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Add_Existing"
+        android:text="Add Existing"
+        android:layout_toRightOf="@+id/tv_align1"
+        android:layout_alignParentBottom="true"/>
+
+
+
+</RelativeLayout>

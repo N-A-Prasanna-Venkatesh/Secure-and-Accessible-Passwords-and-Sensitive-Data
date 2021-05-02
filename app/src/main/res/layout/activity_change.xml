@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Change">
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Prev_Pass"
+        android:hint="Enter Current Password"
+        android:layout_above="@+id/new_pass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/new_pass"
+        android:hint="Enter New Password"
+        android:layout_centerInParent="true"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/conf_pass"
+        android:hint="Re-enter Password"
+        android:layout_below="@+id/new_pass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_chng"
+        android:text="Change Password"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/conf_pass"
+        android:layout_marginTop="15dp"/>
+
+</RelativeLayout>

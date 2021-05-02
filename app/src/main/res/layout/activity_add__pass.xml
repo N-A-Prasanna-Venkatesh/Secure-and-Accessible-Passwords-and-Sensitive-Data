@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Add_Pass">
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_key"
+        android:hint="Enter the Key of Key-Value Pair"
+        android:layout_above="@+id/add_Value"
+        android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_Value"
+        android:hint="Enter the Value of the Key-Value Pair"
+        android:layout_centerInParent="true"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Add_Key_Value"
+        android:text="Add Key Value"
+        android:layout_below="@+id/add_Value"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/show"
+        android:visibility="gone"
+        android:layout_below="@+id/Add_Key_Value"
+        android:text="Show"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

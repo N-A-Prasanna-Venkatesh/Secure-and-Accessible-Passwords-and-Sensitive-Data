@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Generate_Pass">
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Gen_Key"
+        android:hint="Enter the Key for the Key-Value Pair"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/Generate_Pass"
+        android:layout_marginBottom="30dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Generate_Pass"
+        android:text="Generate a Random Password"
+        android:textAllCaps="false"
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/GeneratedPass"
+        android:text="A secure password will appear here"
+        android:layout_below="@+id/Generate_Pass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textSize="20dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/Add_GeneratedPass"
+        android:text="Add this Pair to the Database"
+        android:textAllCaps="false"
+        android:layout_below="@+id/GeneratedPass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        />
+
+
+</RelativeLayout>
