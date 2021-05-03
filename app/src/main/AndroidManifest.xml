@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AlarmApp">
-        <activity android:name=".Add_Pass"></activity>
+        <activity android:name=".Delete_Key_Value"></activity>
+        <activity android:name=".Update_Pass" />
+        <activity android:name=".Add_Pass" />
         <activity android:name=".Generate_Pass" />
         <activity android:name=".Data" />
         <activity android:name=".Alarm_Set" />
