@@ -95,7 +95,7 @@ public class Generate_Pass extends AppCompatActivity {
                         keyss=key.getText().toString();
                         String value_pass=caesar(pass,15,0).toString();
                         Boolean chkinsert = DB.insertdata(keyss,value_pass);
-                        if(chkinsert==true)
+                        if(chkinsert)
                         {
                             Toast.makeText(Generate_Pass.this, "Successfully inserted data", Toast.LENGTH_SHORT).show();
                         }else

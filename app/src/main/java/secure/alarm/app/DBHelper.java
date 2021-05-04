@@ -37,7 +37,8 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Boolean updateuserdata(String key, String value) {
+    //For Updating a Value
+    public Boolean updatedata(String key, String value) {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("value", value);
@@ -53,11 +54,11 @@ public class DBHelper extends SQLiteOpenHelper {
             return false;
         }}
 
-
+//For Deleting a Data
     public Boolean deletedata (String key)
     {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("Select * from sensitive where keys = ?", new String[]{key});
+        Cursor cursor = DB.rawQuery("Select * from sensitive where keys = ?",new String[]{key});
         if (cursor.getCount() > 0) {
             long result = DB.delete("sensitive", "keys=?", new String[]{key});
             if (result == -1) {
@@ -81,6 +82,14 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = DB.rawQuery("Select * from sensitive", null);
         return cursor;
 
+    }
+//For reading a specific data....
+
+    public Cursor fetch_data(String key)
+    {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from sensitive where keys = ?",new String[]{key});
+        return cursor;
     }
 
 

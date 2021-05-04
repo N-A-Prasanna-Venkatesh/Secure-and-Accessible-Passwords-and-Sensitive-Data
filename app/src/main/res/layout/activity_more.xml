@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".More">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv"
+        android:layout_centerInParent="true"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Add_Data"
+        android:text="Add Data"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:layout_above="@+id/Update_Data"
+        android:textAllCaps="false"
+        android:layout_toLeftOf="@+id/tv"
+        android:layout_marginRight="15dp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Update_Data"
+        android:text="Update Data"
+        android:layout_centerVertical="true"
+        android:textAllCaps="false"
+        android:layout_toLeftOf="@+id/tv"
+        android:layout_marginRight="15dp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Delete_Data"
+        android:text="Delete Data"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Update_Data"
+        android:textAllCaps="false"
+        android:layout_marginTop="25dp"
+        android:layout_toLeftOf="@+id/tv"
+        android:layout_marginRight="15dp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Search_Data"
+        android:text="Search Data"
+        android:textAllCaps="false"
+        android:layout_toRightOf="@+id/tv"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        />
+
+
+</RelativeLayout>

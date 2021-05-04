@@ -34,11 +34,19 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Add_Existing"
-        android:text="Add Existing"
+        android:id="@+id/More"
+        android:text="More"
         android:layout_toRightOf="@+id/tv_align1"
-        android:layout_alignParentBottom="true"/>
-
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/Refresh"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Refresh"
+        android:text="Ref"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
 
 
 </RelativeLayout>

@@ -42,7 +42,7 @@ public class Add_Pass extends AppCompatActivity {
                 String values= value.getText().toString();
                 values=caesar(values,15,0).toString();
                 Boolean chkinsert = DB.insertdata(keys,values);
-                if(chkinsert==true)
+                if(chkinsert)
                 {
                     Toast.makeText(Add_Pass.this, "Successfully inserted data", Toast.LENGTH_SHORT).show();
                 }else
