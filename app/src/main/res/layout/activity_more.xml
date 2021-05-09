@@ -16,7 +16,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/Add_Data"
         android:text="Add Data"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
         android:layout_above="@+id/Update_Data"
         android:textAllCaps="false"
@@ -38,7 +37,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/Delete_Data"
         android:text="Delete Data"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/Update_Data"
         android:textAllCaps="false"
         android:layout_marginTop="25dp"
@@ -54,6 +52,17 @@
         android:layout_toRightOf="@+id/tv"
         android:layout_centerVertical="true"
         android:layout_marginLeft="15dp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Time"
+        android:id="@+id/chng_time"
+        android:layout_above="@+id/Search_Data"
+        android:layout_toRightOf="@+id/tv"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="15dp"
+        android:textAllCaps="false"
         />
 
 

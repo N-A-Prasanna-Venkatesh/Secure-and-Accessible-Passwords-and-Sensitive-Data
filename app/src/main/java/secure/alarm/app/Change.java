@@ -19,6 +19,7 @@ public class Change extends AppCompatActivity {
     public static final String MyPreferences = "Preferences";
     public static final String Pass = "pass";
     String code;
+    function fn;
 
     SharedPreferences sharedPreferences;
 
@@ -39,7 +40,7 @@ public class Change extends AppCompatActivity {
 
         sharedPreferences=getSharedPreferences(MyPreferences,MODE_PRIVATE);
         code=sharedPreferences.getString(Pass,"7777");
-        code=caesar(code,19,1).toString();//Decrypting the stored value.
+        code=fn.caesar(code,19,1).toString();//Decrypting the stored value.
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +50,7 @@ public class Change extends AppCompatActivity {
                 s3=et3.getText().toString();
                 if(s2.equals(s3)){
                     if(code.equals(s1)){
-                        String code = caesar(s2,7,0).toString();                 //Shift of 7 positions.
+                        String code = fn.caesar(s2,7,0).toString();                 //Shift of 7 positions.
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString(Pass,code);
                         editor.commit();
@@ -69,55 +70,6 @@ public class Change extends AppCompatActivity {
         });
 
     }
-    public static StringBuffer caesar(String text, int s,int msg) //msg is 0 if we want to encrypt, any other int if we want to decrypt.
-    {
-        StringBuffer result= new StringBuffer();
-        int s1;
-        if(msg==0)
-        {
-            s1 =s%10;
-        }else
-        {
-            s1 = 26-s;
-            s1=10-s1;
-            s1=s1%10;
-        }
-
-        for(int i=0;i<text.length();i++)
-        {
-            char ch = text.charAt(i);
-            if(Character.isDigit(ch))
-            {
-                int b = (int)text.charAt(i);
-                b-=48;
-
-                b=(b+s1)%10;
-                b+=48;
-                char ch1 = (char)b;
-                result.append(ch1);
-            }else
-            {
-                if(Character.isUpperCase(ch))
-                {
-                    char ch1 = (char) (((int) text.charAt(i) + s - 65) % 26 + 65);
-                    result.append(ch1);
-                }else
-                {
-                    if(Character.isLowerCase(ch))
-                    {
-                        char ch1 = (char) (((int) text.charAt(i) + s - 97) % 26 + 97);
-                        result.append(ch1);
-                    }else
-                    {
-                        result.append(text.charAt(i));
-                    }
-                }
-            }
-        }
-
-        return result;
-    }
-
 
 
 }

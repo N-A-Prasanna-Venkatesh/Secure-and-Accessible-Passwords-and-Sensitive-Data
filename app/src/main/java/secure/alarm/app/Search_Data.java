@@ -9,6 +9,8 @@ import android.database.Cursor;
 import android.opengl.ETC1;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -26,7 +28,7 @@ public class Search_Data extends AppCompatActivity {
     String str;
     DBHelper DB;
     Cursor cursor;
-    int a,n,val;
+    int n,val;
     ArrayList<String> data;
     int[] arr;
     String[] gridData;
@@ -36,6 +38,12 @@ public class Search_Data extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE);
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_search__data);
 
         et_Search=findViewById(R.id.Search_Key);
@@ -48,19 +56,27 @@ public class Search_Data extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 str = et_Search.getText().toString();
-                cursor=DB.fetch_data(str);
+                //cursor=DB.fetch_data(str);
+                cursor = DB.getdata();
                 if(cursor.getCount()==0)
                 {
                     Toast.makeText(Search_Data.this, "No Match Found", Toast.LENGTH_SHORT).show();
-                    a=0;
+
                 }else
                     {
-                        a=1;
+                        data = new ArrayList<>();
+
                         while (cursor.moveToNext())
                         {
-                            data = new ArrayList<>();
-                            data.add(cursor.getString(0));
-                            data.add(cursor.getString(1));
+                            String str1 = cursor.getString(0);
+                            if (str1.indexOf(str)!=-1){
+                                data.add(str1);
+                                data.add(cursor.getString(1));
+                            }
+
+
+                            /*data.add(cursor.getString(0));
+                            data.add(cursor.getString(1));*/
                         }
                         n=data.size();
                         arr = new int[n];
