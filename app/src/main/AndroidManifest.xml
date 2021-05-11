@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AlarmApp">
-        <activity android:name=".ChangeTime"></activity>
+        <activity android:name=".Options"></activity>
+        <activity android:name=".ChangeTime" />
         <activity android:name=".Search_Data" />
         <activity android:name=".More" />
         <activity android:name=".Delete_Key_Value" />
