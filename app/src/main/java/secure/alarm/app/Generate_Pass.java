@@ -18,7 +18,7 @@ public class Generate_Pass extends AppCompatActivity {
     EditText key;
     Button Generate,Add;
     TextView tv_pass;
-    int val;
+    int val,rand;
     String pass,keyss;
     ClipData clip;
     DBHelper DB;
@@ -81,6 +81,7 @@ public class Generate_Pass extends AppCompatActivity {
                 {
                     clip=ClipData.newPlainText("sensitive",pass);
                     clipboardManager.setPrimaryClip(clip);
+                    Toast.makeText(Generate_Pass.this, "Copied!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -94,8 +95,9 @@ public class Generate_Pass extends AppCompatActivity {
                 }else
                     {
                         keyss=key.getText().toString();
-                        String value_pass=fn.caesar(pass,15,0).toString();
-                        Boolean chkinsert = DB.insertdata(keyss,value_pass);
+                        rand = (int) (26*Math.random());
+                        String value_pass=fn.caesar(pass,rand,0).toString();
+                        Boolean chkinsert = DB.insertdata(keyss,value_pass,Integer.toString(rand+15));
                         if(chkinsert)
                         {
                             Toast.makeText(Generate_Pass.this, "Successfully inserted data", Toast.LENGTH_SHORT).show();

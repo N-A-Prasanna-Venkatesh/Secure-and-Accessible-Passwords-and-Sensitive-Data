@@ -28,8 +28,8 @@ public class Search_Data extends AppCompatActivity {
     String str;
     DBHelper DB;
     Cursor cursor;
-    int n,val;
-    ArrayList<String> data;
+    int n,val,val_pos,val_rand;
+    ArrayList<String> data,vals;
     int[] arr;
     String[] gridData;
     ClipData clip;
@@ -65,6 +65,7 @@ public class Search_Data extends AppCompatActivity {
                 }else
                     {
                         data = new ArrayList<>();
+                        vals = new ArrayList<>();
 
                         while (cursor.moveToNext())
                         {
@@ -72,6 +73,7 @@ public class Search_Data extends AppCompatActivity {
                             if (str1.indexOf(str)!=-1){
                                 data.add(str1);
                                 data.add(cursor.getString(1));
+                                vals.add(cursor.getString(2));
                             }
 
 
@@ -86,9 +88,6 @@ public class Search_Data extends AppCompatActivity {
 
 
                     }
-
-
-
             }
         });
         gv1.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -103,16 +102,22 @@ public class Search_Data extends AppCompatActivity {
                     //Toast.makeText(Data.this, Integer.toString(val), Toast.LENGTH_SHORT).show();
                     if(val==0)
                     {
-                        arr[position]+=1;
-                        String str1 = fn.caesar(str,11,1).toString();
+                        //params are : val_pos,val_rand
+                        val_pos = (int) ((position-1)/2);
+                        val_rand = Integer.parseInt(vals.get(val_pos))  - 15;
+                        String str1 = fn.caesar(str,26-val_rand,1).toString();
                         ((TextView)view).setText(str1);
                         //ClipBoard
                         clip= ClipData.newPlainText("sensitive",str1);
                         clipboardManager.setPrimaryClip(clip);
                         Toast.makeText(Search_Data.this, "Copied.", Toast.LENGTH_SHORT).show();
+                        arr[position]+=1;
                     }else
                     {
-                        String str1=fn.caesar(str,15,0).toString();
+                        //params are : val_pos,val_rand
+                        val_pos = (int) ((position-1)/2);
+                        val_rand = Integer.parseInt(vals.get(val_pos))  - 15;
+                        String str1=fn.caesar(str,val_rand,0).toString();
                         ((TextView)view).setText(str1);
                         arr[position]-=1;
                     }

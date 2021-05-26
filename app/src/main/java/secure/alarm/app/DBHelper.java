@@ -15,7 +15,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase DB) {
-        DB.execSQL("create Table sensitive(keys TEXT , value TEXT)");
+        DB.execSQL("create Table sensitive(keys TEXT , value TEXT , value1 TEXT)");
     }
 
     @Override
@@ -23,12 +23,13 @@ public class DBHelper extends SQLiteOpenHelper {
         DB.execSQL("drop Table if exists sensitive");
     }
 //For inserting data....
-    public Boolean insertdata(String key, String value)
+    public Boolean insertdata(String key, String value, String value1)
     {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("keys", key);
         contentValues.put("value", value);
+        contentValues.put("value1",value1);
         long result=DB.insert("sensitive", null, contentValues);
         if(result==-1){
             return false;
@@ -38,10 +39,11 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     //For Updating a Value
-    public Boolean updatedata(String key, String value) {
+    public Boolean updatedata(String key, String value, String value1) {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("value", value);
+        contentValues.put("value1",value1);
         Cursor cursor = DB.rawQuery("Select * from sensitive where keys = ?", new String[]{key});
         if (cursor.getCount() > 0) {
             long result = DB.update("sensitive", contentValues, "keys=?", new String[]{key});

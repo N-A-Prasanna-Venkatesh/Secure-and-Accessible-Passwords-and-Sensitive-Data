@@ -17,6 +17,7 @@ public class Add_Pass extends AppCompatActivity {
     Button add,show;
     DBHelper DB;
     function fn;
+    int rand;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +42,10 @@ public class Add_Pass extends AppCompatActivity {
                 //Toast.makeText(Add_Pass.this, "Button pressed", Toast.LENGTH_SHORT).show();
                 String keys= key.getText().toString();
                 String values= value.getText().toString();
-                values=fn.caesar(values,15,0).toString();
-                Boolean chkinsert = DB.insertdata(keys,values);
+                rand = (int) (26 * Math.random());
+
+                values=fn.caesar(values,rand,0).toString();
+                Boolean chkinsert = DB.insertdata(keys,values,Integer.toString(rand+15));
                 if(chkinsert)
                 {
                     Toast.makeText(Add_Pass.this, "Successfully inserted data", Toast.LENGTH_SHORT).show();

@@ -15,6 +15,7 @@ public class Update_Pass extends AppCompatActivity {
     Button btn_Update;
     DBHelper DB;
     function fn;
+    int rand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,9 @@ public class Update_Pass extends AppCompatActivity {
             public void onClick(View v) {
                 String a = et_key.getText().toString();
                 String b = et_value.getText().toString();
-                String encr = fn.caesar(b,15,0).toString();
-                Boolean chk = DB.updatedata(a,encr);
+                rand = (int) (26*Math.random());
+                String encr = fn.caesar(b,rand,0).toString();
+                Boolean chk = DB.updatedata(a,encr,Integer.toString(rand+15));
                 if(chk)
                 {
                     Toast.makeText(Update_Pass.this, "Data Updated Successfully", Toast.LENGTH_SHORT).show();
